@@ -103,7 +103,6 @@ def process_data(cur, conn, filepath, func):
         func: name of function to be called for each log file
     '''
     
-    print('func type is ', type(func))
     # get all files matching extension from directory
     all_files = []
     for root, dirs, files in os.walk(filepath):
