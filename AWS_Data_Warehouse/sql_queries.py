@@ -77,7 +77,7 @@ PRIMARY KEY (USER_ID)
 
 song_table_create = ("""
 create table songs (
-song_id varchar(100) not NULL distkey,
+song_id varchar(100) not NULL distkey sortkey,
 title varchar(200) not NULL,
 artist_id varchar(100) not NULL,
 year int,
