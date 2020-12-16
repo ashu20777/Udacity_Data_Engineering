@@ -7,15 +7,25 @@ A music streaming startup, Sparkify, has grown their user base and song database
 In this project we an ETL pipeline that extracts the data from S3, processes them using Spark on an EMR cluster, and load the data back into S3 as a set of dimensional tables in parquet format. 
 
 ## How to run
-**From local machine**	
+**From local machine:**	
 - Populate the `dl.cfg` config file in the root folder with the AWS credentials:
 ```
 KEY=YOUR_AWS_ACCESS_KEY
 SECRET=YOUR_AWS_SECRET_KEY
 ```
-- Create an S3 bucket s3a://udacity-data-lake-w-spark/ to store the output files
+- Create an S3 bucket `s3a://udacity-data-lake-w-spark/` to store the output files
 - Run the following command:
 `python etl.py`
+
+**From EMR Cluster:**	
+- Launch an EMR cluster using your AWS account or CLI with the following settings:
+	•	Release: emr-5.20.0 or later
+	•	Applications: Spark: Spark 2.4.0 on Hadoop 2.8.5 YARN with Ganglia 3.7.2 and Zeppelin 0.8.0
+	•	Instance type: m3.xlarge
+	•	Number of instance: 3
+	•	Choose an EC2 key pair to connect to master node using SSH (putty)
+- 
+		
 
 *To run on an Jupyter Notebook powered by an EMR cluster*, import the notebook found in this project.
 
