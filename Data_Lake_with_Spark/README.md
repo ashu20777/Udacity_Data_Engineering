@@ -7,7 +7,7 @@ A music streaming startup, Sparkify, has grown their user base and song database
 In this project we an ETL pipeline that extracts the data from S3, processes them using Spark on an EMR cluster, and load the data back into S3 as a set of dimensional tables in parquet format. 
 
 ## How to run
-### From local machine
+	**From local machine**
 	- Populate the `dl.cfg` config file in the root folder with the AWS credentials:
 	```
 	KEY=YOUR_AWS_ACCESS_KEY
