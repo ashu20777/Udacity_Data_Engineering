@@ -137,10 +137,6 @@ def main():
 	Transform it using Spark into Data Warehouse tables, and 
 	Load them back to S3 in Parquet format
 	"""
-	Read songs and log data from S3, 
-	Transform it using Spark into Data Warehouse tables, and 
-	Load them back to S3 in Parquet format
-	"""
     spark = create_spark_session()
     input_data = "s3a://udacity-dend/"
     output_data = "s3a://udacity-data-lake-w-spark/"
