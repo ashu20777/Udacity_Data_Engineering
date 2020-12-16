@@ -34,7 +34,6 @@ def process_song_data(spark, input_data, output_data):
             input_data  : location of song_data json files in S3
             output_data : S3 bucket where Data Warehouse tables will be stored
     """
-    
 	# get filepath to song data file
     song_data = input_data + 'song_data/*/*/*/*.json'
     
