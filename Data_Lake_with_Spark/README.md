@@ -21,14 +21,14 @@ SECRET=YOUR_AWS_SECRET_KEY
 * Launch an EMR cluster using your AWS account or CLI with the following settings:
 	- Release: `emr-6.0.0` or later
 	- Applications: `Spark`: Spark on Hadoop YARN 
-	- Instance type: 'm5.xlarge'
+	- Instance type: `m5.xlarge`
 	- Number of instance: `3`
 	- Choose an `EC2 key pair` to connect to master node using SSH (putty)
 	- check the `Use AWS Glue Data Catalog for table metadata` option to run Spark using Jupyter notebook
 * Connect to the Master node EC2 machine using SSH (putty for Windows)
 * Install GIT on master node: `$ sudo yum install make git`
 * Clone github repository on master node: `$ git clone https://github.com/ashu20777/Udacity_Data_Engineering/`
-* Run the following command: `spark-submit --master yarn etl.py`
+* Run the following command: `$ spark-submit --master yarn etl.py`
 		
 
 *To run on an Jupyter Notebook powered by an EMR cluster*, import the notebook found in this project.
@@ -37,29 +37,40 @@ SECRET=YOUR_AWS_SECRET_KEY
 
 The files found at this project are the following:
 
-- dl.cfg: *not uploaded to github - you need to create this file yourself* File with AWS credentials.
-- etl.py: Program that extracts songs and log data from S3, transforms it using Spark, and loads the dimensional tables created in parquet format back to S3.
+- dl.cfg: Config file with AWS credentials.
+- etl.py: Program that extracts songs and log data from S3, transforms it using Spark, and loads the Fact and Dimension tables back to S3 in parquet format.
 - README.md: Current file, contains detailed information about the project.
 
 ## ETL pipeline
 
-1. Load credentials
-2. Read data from S3
+1. Read data from S3
     - Song data: `s3://udacity-dend/song_data`
     - Log data: `s3://udacity-dend/log_data`
 
-    The script reads song_data and load_data from S3.
+2. Process data using spark
+    Transforms them to create five different tables listed below : 
+    #### Fact Table
+	 **songplays**  - records in log data associated with song plays i.e. records with page  `NextSong`
+    -   _songplay_id, start_time, user_id, level, song_id, artist_id, session_id, location, user_agent_
 
-3. Process data using spark
+	#### Dimension Tables
+	 **users**  - users in the app
+		Fields -   _user_id, first_name, last_name, gender, level_
+		
+	 **songs**  - songs in music database
+    Fields - _song_id, title, artist_id, year, duration_
+    
+	**artists**  - artists in music database
+    Fields -   _artist_id, name, location, lattitude, longitude_
+    
+	  **time**  - timestamps of records in  **songplays**  broken down into specific units
+    Fields -   _start_time, hour, day, week, month, year, weekday_
 
-    Transforms them to create five different tables listed under `Dimension Tables and Fact Table`.
-    Each table includes the right columns and data types. Duplicates are addressed where appropriate.
-
-4. Load it back to S3
+3. Load it back to S3
 
     Writes them to partitioned parquet files in table directories on S3.
 
-    Each of the five tables are written to parquet files in a separate analytics directory on S3. Each table has its own folder within the directory. Songs table files are partitioned by year and then artist. Time table files are partitioned by year and month. Songplays table files are partitioned by year and month.
+    Each of the five tables are written to parquet files in a separate directory on S3. Each table has its own folder within the directory. Songs table files are partitioned by year and then artist. Time table files are partitioned by year and month. Songplays table files are partitioned by year and month.
 
 ### Source Data
 - **Song datasets**: all json files are nested in subdirectories under *s3a://udacity-dend/song_data*. A sample of this files is:
@@ -73,46 +84,3 @@ The files found at this project are the following:
 ```
 {"artist":"Slipknot","auth":"Logged In","firstName":"Aiden","gender":"M","itemInSession":0,"lastName":"Ramirez","length":192.57424,"level":"paid","location":"New York-Newark-Jersey City, NY-NJ-PA","method":"PUT","page":"NextSong","registration":1540283578796.0,"sessionId":19,"song":"Opium Of The People (Album Version)","status":200,"ts":1541639510796,"userAgent":"\"Mozilla\/5.0 (Windows NT 6.1) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/36.0.1985.143 Safari\/537.36\"","userId":"20"}
 ```
-
-### Dimension Tables and Fact Table
-
-**songplays** - Fact table - records in log data associated with song plays i.e. records with page NextSong
-- songplay_id (INT) PRIMARY KEY: ID of each user song play 
-- start_time (DATE) NOT NULL: Timestamp of beggining of user activity
-- user_id (INT) NOT NULL: ID of user
-- level (TEXT): User level {free | paid}
-- song_id (TEXT) NOT NULL: ID of Song played
-- artist_id (TEXT) NOT NULL: ID of Artist of the song played
-- session_id (INT): ID of the user Session 
-- location (TEXT): User location 
-- user_agent (TEXT): Agent used by user to access Sparkify platform
-
-**users** - users in the app
-- user_id (INT) PRIMARY KEY: ID of user
-- first_name (TEXT) NOT NULL: Name of user
-- last_name (TEXT) NOT NULL: Last Name of user
-- gender (TEXT): Gender of user {M | F}
-- level (TEXT): User level {free | paid}
-
-**songs** - songs in music database
-- song_id (TEXT) PRIMARY KEY: ID of Song
-- title (TEXT) NOT NULL: Title of Song
-- artist_id (TEXT) NOT NULL: ID of song Artist
-- year (INT): Year of song release
-- duration (FLOAT) NOT NULL: Song duration in milliseconds
-
-**artists** - artists in music database
-- artist_id (TEXT) PRIMARY KEY: ID of Artist
-- name (TEXT) NOT NULL: Name of Artist
-- location (TEXT): Name of Artist city
-- lattitude (FLOAT): Lattitude location of artist
-- longitude (FLOAT): Longitude location of artist
-
-**time** - timestamps of records in songplays broken down into specific units
-- start_time (DATE) PRIMARY KEY: Timestamp of row
-- hour (INT): Hour associated to start_time
-- day (INT): Day associated to start_time
-- week (INT): Week of year associated to start_time
-- month (INT): Month associated to start_time 
-- year (INT): Year associated to start_time
-- weekday (TEXT): Name of week day associated to start_time
