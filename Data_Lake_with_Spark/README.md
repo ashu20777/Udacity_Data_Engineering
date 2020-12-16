@@ -19,12 +19,16 @@ SECRET=YOUR_AWS_SECRET_KEY
 
 **From EMR Cluster:**	
 * Launch an EMR cluster using your AWS account or CLI with the following settings:
-	- Release: emr-5.20.0 or later
-	- Applications: Spark: Spark 2.4.0 on Hadoop 2.8.5 YARN with Ganglia 3.7.2 and Zeppelin 0.8.0
-	- Instance type: m3.xlarge
-	- Number of instance: 3
-	- Choose an EC2 key pair to connect to master node using SSH (putty)
-* Connect to the Master node EC2 machine using SSH (putty for Windows 
+	- Release: `emr-6.0.0` or later
+	- Applications: `Spark`: Spark on Hadoop YARN 
+	- Instance type: 'm5.xlarge'
+	- Number of instance: `3`
+	- Choose an `EC2 key pair` to connect to master node using SSH (putty)
+	- check the `Use AWS Glue Data Catalog for table metadata` option to run Spark using Jupyter notebook
+* Connect to the Master node EC2 machine using SSH (putty for Windows)
+* Install GIT on master node: `$ sudo yum install make git`
+* Clone github repository on master node: `$ git clone https://github.com/ashu20777/Udacity_Data_Engineering/`
+* Run the following command: `spark-submit --master yarn etl.py`
 		
 
 *To run on an Jupyter Notebook powered by an EMR cluster*, import the notebook found in this project.
