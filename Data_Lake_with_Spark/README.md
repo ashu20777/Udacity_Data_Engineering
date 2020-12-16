@@ -69,7 +69,7 @@ The files found at this project are the following:
 
     Write the Fact and Dimension tables to partitioned parquet files in S3.
 
-    Each of the five tables are written to parquet files in a separate directory on S3. Each table has its own folder within the directory. Songs table files are partitioned by year and then artist. Time table files are partitioned by year and month. Songplays table files are partitioned by year and month.
+    Each of the five tables are written to parquet files in an S3 bucket. Each table has its own folder within the bucket. Songs table files are partitioned by year and then artist. Time table files are partitioned by year and month. Songplays table files are partitioned by year and month.
 
 ### Source Data
 - **Song datasets**: all json files are nested in subdirectories under *s3a://udacity-dend/song_data*. A sample of this files is:
