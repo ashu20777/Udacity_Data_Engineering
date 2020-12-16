@@ -13,9 +13,9 @@ os.environ['AWS_ACCESS_KEY_ID']=config['AWS']['AWS_ACCESS_KEY_ID']
 os.environ['AWS_SECRET_ACCESS_KEY']=config['AWS']['AWS_SECRET_ACCESS_KEY']
 
 def create_spark_session():
-    """ 
-	Create a Spark Session with hadoop-aws package,
-	which is a library used to connect to S3
+	""" 
+		Create a Spark Session with hadoop-aws package,
+		which is a library used to connect to S3
 	"""
     spark = SparkSession \
         .builder \
@@ -34,7 +34,8 @@ def process_song_data(spark, input_data, output_data):
             input_data  : location of song_data json files in S3
             output_data : S3 bucket where Data Warehouse tables will be stored
     """
-    # get filepath to song data file
+    
+	# get filepath to song data file
     song_data = input_data + 'song_data/*/*/*/*.json'
     
     # read song data file
@@ -68,8 +69,7 @@ def process_log_data(spark, input_data, output_data):
         Parameters:
             spark       : Spark Session
             input_data  : location of log_data json files in S3
-            output_data : S3 bucket where Data Warehouse tables will be stored
-            
+            output_data : S3 bucket where Data Warehouse tables will be stored        
     """
     # get filepath to log data file
     log_data = input_data + 'log_data/*/*/*.json'
@@ -134,7 +134,7 @@ def process_log_data(spark, input_data, output_data):
 
 def main():
 	"""
-        Read songs and log data from S3, 
+		Read songs and log data from S3, 
 		Transform it using Spark into Data Warehouse tables, and 
 		Load them back to S3 in Parquet format
     """
