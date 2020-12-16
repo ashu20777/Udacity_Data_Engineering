@@ -17,13 +17,14 @@ SECRET=YOUR_AWS_SECRET_KEY
 - Run the following command:
 `python etl.py`
 
+
 **From EMR Cluster:**	
 * Launch an EMR cluster using your AWS account or CLI with the following settings:
 	- Release: `emr-6.0.0` or later
 	- Applications: `Spark`: Spark on Hadoop YARN 
 	- Instance type: `m5.xlarge`
 	- Number of instance: `3`
-	- Choose an `EC2 key pair` to connect to master node using SSH (putty)
+	- Choose an `EC2 key pair` to connect to master node using SSH (Putty for Windows)
 	- check the `Use AWS Glue Data Catalog for table metadata` option to run Spark using Jupyter notebook
 * Connect to the Master node EC2 machine using SSH (putty for Windows)
 * Install GIT on master node: `$ sudo yum install make git`
@@ -46,8 +47,7 @@ The files found at this project are the following:
     - Song data: `s3://udacity-dend/song_data`
     - Log data: `s3://udacity-dend/log_data`
 
-2. Process data using spark
-    Transforms them to create five different tables listed below : 
+2. Process the data using spark and create the five tables listed below: 
     #### Fact Table
 	 **songplays**  - records in log data associated with song plays i.e. records with page  `NextSong`
     -   _songplay_id, start_time, user_id, level, song_id, artist_id, session_id, location, user_agent_
@@ -67,7 +67,7 @@ The files found at this project are the following:
 
 3. Load it back to S3
 
-    Writes them to partitioned parquet files in table directories on S3.
+    Write the Fact and Dimension tables to partitioned parquet files in S3.
 
     Each of the five tables are written to parquet files in a separate directory on S3. Each table has its own folder within the directory. Songs table files are partitioned by year and then artist. Time table files are partitioned by year and month. Songplays table files are partitioned by year and month.
 
