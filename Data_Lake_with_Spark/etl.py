@@ -133,6 +133,10 @@ def process_log_data(spark, input_data, output_data):
 
 def main():
 	"""
+	Read songs and log data from S3,
+	Transform it using Spark into Data Warehouse tables, and 
+	Load them back to S3 in Parquet format
+	"""
 	Read songs and log data from S3, 
 	Transform it using Spark into Data Warehouse tables, and 
 	Load them back to S3 in Parquet format
