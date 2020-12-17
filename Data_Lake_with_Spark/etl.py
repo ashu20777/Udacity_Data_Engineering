@@ -13,7 +13,7 @@ os.environ['AWS_ACCESS_KEY_ID']=config['AWS']['AWS_ACCESS_KEY_ID']
 os.environ['AWS_SECRET_ACCESS_KEY']=config['AWS']['AWS_SECRET_ACCESS_KEY']
 
 def create_spark_session():
-	""" 
+    """
 		Create a Spark Session with hadoop-aws package,
 		which is a library used to connect to S3
 	"""
@@ -132,11 +132,11 @@ def process_log_data(spark, input_data, output_data):
 
 
 def main():
-	"""
-	Read songs and log data from S3,
-	Transform it using Spark into Data Warehouse tables, and 
+    """
+    Read songs and log data from S3,
+	Transform it using Spark into Data Warehouse tables, and
 	Load them back to S3 in Parquet format
-	"""
+    """
     spark = create_spark_session()
     input_data = "s3a://udacity-dend/"
     output_data = "s3a://udacity-data-lake-w-spark/"
