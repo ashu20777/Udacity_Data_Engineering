@@ -23,7 +23,7 @@ SECRET=YOUR_AWS_SECRET_KEY
 	- Release: `emr-6.0.0` or later
 	- Applications: `Spark`: Spark on Hadoop YARN 
 	- Instance type: `m5.xlarge`
-	- Number of instance: `3`
+	- Number of instance: `5`
 	- Choose an `EC2 key pair` to connect to master node using SSH (Putty for Windows)
 	- check the `Use AWS Glue Data Catalog for table metadata` option to run Spark using Jupyter notebook
 * Enable SSH connection to the master node by adding a new inbound rule to the security group: Type: `SSH`, Port:`22` Source: `Custom 0.0.0.0/0`
