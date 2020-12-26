@@ -35,19 +35,19 @@ The files found at this project are the following:
 ```
 
 ## Data Warehouse design
-    #### Fact Table
-	 **songplays**  - records in log data associated with song plays i.e. records with page  `NextSong`
-    -   _songplay_id, start_time, user_id, level, song_id, artist_id, session_id, location, user_agent_
+#### Fact Table
+ **songplays**  - records in log data associated with song plays i.e. records with page  `NextSong`
+-   _songplay_id, start_time, user_id, level, song_id, artist_id, session_id, location, user_agent_
 
-	#### Dimension Tables
-	 **users**  - users in the app
-		Fields -   _user_id, first_name, last_name, gender, level_
-		
-	 **songs**  - songs in music database
-    Fields - _song_id, title, artist_id, year, duration_
-    
-	**artists**  - artists in music database
-    Fields -   _artist_id, name, location, lattitude, longitude_
-    
-	  **time**  - timestamps of records in  **songplays**  broken down into specific units
-    Fields -   _start_time, hour, day, week, month, year, weekday_
+#### Dimension Tables
+ **users**  - users in the app
+	Fields -   _user_id, first_name, last_name, gender, level_
+	
+ **songs**  - songs in music database
+Fields - _song_id, title, artist_id, year, duration_
+
+**artists**  - artists in music database
+Fields -   _artist_id, name, location, lattitude, longitude_
+
+  **time**  - timestamps of records in  **songplays**  broken down into specific units
+Fields -   _start_time, hour, day, week, month, year, weekday_
