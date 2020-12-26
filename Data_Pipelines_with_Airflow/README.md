@@ -20,6 +20,7 @@ The files found at this project are the following:
 
 ## Source Data
 * Song data: `s3://udacity-dend/song_data`
+	
 	Contains JSON files nested subdirectories. A sample of this files is:
 
 ```
@@ -27,6 +28,7 @@ The files found at this project are the following:
 ```
 
 * Log data: `s3://udacity-dend/log_data`
+		
 		Contains JSON files nested subdirectories. A sample of this files is:
 
 ```
