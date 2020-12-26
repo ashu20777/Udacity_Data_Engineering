@@ -27,6 +27,9 @@ In this project we build a high grade data pipeline that is dynamic and built fr
 ```
 
 ## Data Warehouse design
+
+Amazon Redshift is used for storing the Data Warehouse tables.
+
 #### Fact Table
  **songplays**  - records in log data associated with song plays i.e. records with page  `NextSong`
 -   _songplay_id, start_time, user_id, level, song_id, artist_id, session_id, location, user_agent_
@@ -49,11 +52,13 @@ Fields -   _start_time, hour, day, week, month, year, weekday_
 ## Project structure
 
 * dags
-	- pipleline.py
+	- `pipleline.py`
 * plugins
 	- operators
-		* stage_redshift.py - Operator to read files from S3 and load into Redshift staging tables
-		* load_fact.py - Operator to load the fact table in Redshift
-		* load_dimension.py - Operator to read from staging tables and load the dimension tables in Redshift
-		* data_quality.py - Operator for data quality checking
-	
+		* `stage_redshift.py` - Airflow custom operator to read JSON files from S3 to Redshift
+		* `load_fact.py` - Airflow custom operator to load the fact table in Redshift
+		* `load_dimension.py` - Airflow custom operator to load dimension tables in Redshift
+		* `data_quality.py` - Airflow custom operator for checking data quality
+	- helpers
+		* `create_tables.sql` - Contains DDL statements to create tables in Redshift
+		* `sql_queries.py` - Redshift SQL queries used in the pipeline		
