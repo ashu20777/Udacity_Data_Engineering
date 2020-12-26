@@ -25,5 +25,5 @@ class LoadFactOperator(BaseOperator):
         redshift_hook = PostgresHook(self.redshift_conn_id)
         columns = ','.join(self.column_list)
         sql_stmt = f"insert into {self.table} ({columns}) " + self.select_sql
-        redshift_hook.run(f"delete from {self.table}")
+        # redshift_hook.run(f"delete from {self.table}")
         redshift_hook.run(sql_stmt)

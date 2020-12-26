@@ -14,6 +14,8 @@ default_args = {
     'start_date': datetime(2019, 1, 12),
     'depends_on_past': False,
     'email_on_retry': False
+    'retries': 3,
+    'retry_delay': timedelta(minutes=5)	
 }
 
 dag = DAG('pipeline',
