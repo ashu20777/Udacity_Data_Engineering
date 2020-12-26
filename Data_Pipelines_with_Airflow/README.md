@@ -48,12 +48,12 @@ Fields -   _start_time, hour, day, week, month, year, weekday_
 
 ## Project structure
 
-*dags
+* dags
 	- pipleline.py
-*plugins
+* plugins
 	- operators
-		*stage_redshift.py - Operator to read files from S3 and load into Redshift staging tables
-		*load_fact.py - Operator to load the fact table in Redshift
-		*load_dimension.py - Operator to read from staging tables and load the dimension tables in Redshift
-		*data_quality.py - Operator for data quality checking
+		* stage_redshift.py - Operator to read files from S3 and load into Redshift staging tables
+		* load_fact.py - Operator to load the fact table in Redshift
+		* load_dimension.py - Operator to read from staging tables and load the dimension tables in Redshift
+		* data_quality.py - Operator for data quality checking
 	
