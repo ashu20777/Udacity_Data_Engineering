@@ -63,6 +63,7 @@ Fields -   _start_time, hour, day, week, month, year, weekday_
 		* `create_tables.sql` - Contains DDL statements to create tables in Redshift
 		* `sql_queries.py` - Redshift SQL queries used in the pipeline
 		
+
 Below is a screenshot of the Airflow DAG and its task dependencies:
 
 ![](images/dag.png)
