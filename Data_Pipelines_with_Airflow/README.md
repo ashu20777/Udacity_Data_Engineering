@@ -52,7 +52,7 @@ Fields -   _start_time, hour, day, week, month, year, weekday_
 ## Project structure
 
 * dags
-	- `pipleline.py`
+	- `pipleline.py` - The main Airflow DAG for the data pipeline
 * plugins
 	- operators
 		* `stage_redshift.py` - Airflow custom operator to read JSON files from S3 to Redshift
