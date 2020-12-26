@@ -48,17 +48,12 @@ Fields -   _start_time, hour, day, week, month, year, weekday_
 
 ## Project structure
 
-**dags**
+*dags
 	- pipleline.py
-**plugins**
+*plugins
 	- operators
-		**stage_redshift.py - Operator to read files from S3 and load into Redshift staging tables
-		**load_fact.py - Operator to load the fact table in Redshift
-		**load_dimension.py - Operator to read from staging tables and load the dimension tables in Redshift
-		**data_quality.py - Operator for data quality checking
+		*stage_redshift.py - Operator to read files from S3 and load into Redshift staging tables
+		*load_fact.py - Operator to load the fact table in Redshift
+		*load_dimension.py - Operator to read from staging tables and load the dimension tables in Redshift
+		*data_quality.py - Operator for data quality checking
 	
-
-- dl.cfg: Config file with AWS credentials.
-- etl.py: Program that extracts songs and log data from S3, transforms it using Spark, and loads the Fact and Dimension tables back to S3 in parquet format.
-- data_lake.ipynb: Jupyter notebook, for running the program on Jupyter instead of the command line. In order to run, import this notebook on the EMR cluster.
-- README.md: Current file, contains detailed information about the project.
