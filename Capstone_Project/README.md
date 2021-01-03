@@ -11,7 +11,13 @@ In this open-ended project we build a Data Warehouse for the I94 Immigration Dat
 
 ## Data Model
 
+The Data Warehouse has been implemented as a Star Schema, with one fact table FACT_VISITS and multiple dimensions. Below is a screen shot of the Data Model:
+
 ![](images/Data_Model.png)
 
 
 ## Technologies used
+
+* Spark: I used Spark to process the input data because it can handle very large amounts of data with very good performance. Besides, Spark has a SQL library that allows you to query the data using SQL syntax, like you would do on a database like MySQL or Oracle.
+* Python: Python programming language is widely used in Data Engineering because of its effectiveness and simplicity.
+* Juptyer Notebook was used for data analysis and processing using Python.
