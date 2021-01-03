@@ -7,5 +7,11 @@ In this open-ended project we build a Data Warehouse for the I94 Immigration Dat
 * I94 Immigration Data: [This](https://travel.trade.gov/research/reports/i94/historical/2016.html) is where the data comes from. There's a sample file so you can take a look at the data in csv format before reading it all in. 
 * U.S. City Demographic Data: This data comes from OpenSoft. You can read more about it [here](https://public.opendatasoft.com/explore/dataset/us-cities-demographics/export/)
 * Airports Data: This is a simple table of airport codes and corresponding cities. It comes from [here](https://datahub.io/core/airport-codes#data)
-* Others: Some other datasets such as Country & State codes, and Visa information have been consolidated in [this](https://github.com/ashu20777/Udacity_Data_Engineering/blob/master/Capstone_Project/data/I94_SAS_Labels_Descriptions.SAS) SAS file: 
+* Others: Some other datasets such as Country & State codes, and Visa information have been consolidated in an SAS file included [here](https://github.com/ashu20777/Udacity_Data_Engineering/blob/master/Capstone_Project/data/I94_SAS_Labels_Descriptions.SAS) 
 
+## Data Model
+
+![](images/Data_Model.png)
+
+
+## Technologies used
