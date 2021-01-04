@@ -57,8 +57,9 @@ def main():
         'df_airports_clean': 'dim_airports'
     }
     '''
-    validate_dimensions(spark,['dim_visa','dim_state','dim_country','dim_us_demo','dim_airports'],output_data)
 
+    validate_dimensions(spark,['dim_visa','dim_state','dim_country','dim_us_demo','dim_airports'],output_data)
+    validate_fact(spark,'fact_visits',output_data)
 
 if __name__ == "__main__":
     main()
