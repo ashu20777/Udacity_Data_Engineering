@@ -22,7 +22,7 @@ The Data Warehouse has been implemented as a Star Schema, with one fact table FA
 
 * **Spark**: I used Spark to process the input data because it can handle very large amounts of data with very good performance. Besides, Spark has a SQL library that allows you to query the data using SQL syntax, like you would on a database like MySQL or Oracle.
 * **Python**: Python programming language is widely used in Data Engineering because of its effectiveness and simplicity.
-* **Juptyer Notebook** was used for data analysis and processing using Python.
+* **Juptyer Notebook** was used for development and data analysis using Python.
 
 
 ## Project structure
