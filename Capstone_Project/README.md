@@ -40,4 +40,5 @@ Below are the file included in this project:
 ## How to run
 
 - Run the following command:
+
 `python etl.py`
