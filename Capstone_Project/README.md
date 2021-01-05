@@ -21,3 +21,23 @@ The Data Warehouse has been implemented as a Star Schema, with one fact table FA
 * **Spark**: I used Spark to process the input data because it can handle very large amounts of data with very good performance. Besides, Spark has a SQL library that allows you to query the data using SQL syntax, like you would on a database like MySQL or Oracle.
 * **Python**: Python programming language is widely used in Data Engineering because of its effectiveness and simplicity.
 * **Juptyer Notebook** was used for data analysis and processing using Python.
+
+
+## Project structure
+
+Below are the file included in this project:
+
+- etl.py: The main Python script. It reads input datasets using Spark, cleans the datasets, transforms and loads fact and dimension tables, and finally runs data quality checks.
+- clean.py: This python script cleans input datasets by discarding invalid data, fixing and converting data types and date formats, renaming columns to meaningful names.
+- load.py: This pythons script loads data into fact and dimensions as parquet files after applying the appropriate partitioning.
+- validate.py: Runs data validations and data quality checks such as check row counts, unique keys, missing (null) values, etc.
+- parse_I94_SAS_labels_descriptions.py: parse I94_SAS_Labels_Descriptions.SAS file for valid codes and loads into Spark data frames.
+- Capstone Project Template.ipynb: Jupyter notebook used for development, also contains detailed execution steps, data model and project write up.
+- data_dictionary.md: Contains the data dictionary.
+- README.md: current file
+
+
+## How to run
+
+- Run the following command:
+`python etl.py`

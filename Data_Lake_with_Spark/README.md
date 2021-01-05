@@ -35,7 +35,7 @@ SECRET=YOUR_AWS_SECRET_KEY
 		
 ## Project structure
 
-The files found at this project are the following:
+Below are the file included in this project:
 
 - dl.cfg: Config file with AWS credentials.
 - etl.py: Program that extracts songs and log data from S3, transforms it using Spark, and loads the Fact and Dimension tables back to S3 in parquet format.

@@ -28,6 +28,7 @@ def load_fact(spark,output_data,df_visits_clean):
     extract(month from arrival_date) arrival_month,
     extract(year from arrival_date) arrival_year from visits
     """)
+
     df_visits_partition.write.partitionBy("arrival_year", "arrival_month", "arrival_day").mode('overwrite').parquet(
         output_data + "fact_visits.parquet")
 
