@@ -18,13 +18,11 @@ The Data Warehouse has been implemented as a Star Schema, with one fact table FA
 ![](images/Data_Model.png)
 
 
-
 ## Technologies used
 
 * **Spark**: I used Spark to process the input data because it can handle very large amounts of data with very good performance. Besides, Spark has a SQL library that allows you to query the data using SQL syntax, like you would on a database like MySQL or Oracle.
 * **Python**: Python programming language is widely used in Data Engineering because of its effectiveness and simplicity.
 * **Juptyer Notebook** was used for data analysis and processing using Python.
-
 
 
 ## Project structure
@@ -39,7 +37,6 @@ Below are the file included in this project:
 - Capstone Project Template.ipynb: Jupyter notebook used for development, also contains detailed execution steps, data model and project write up.
 - data_dictionary.md: Contains the data dictionary.
 - README.md: current file
-
 
 
 ## How to run
