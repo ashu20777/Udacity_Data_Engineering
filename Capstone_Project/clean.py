@@ -1,5 +1,13 @@
 
 def clean_airport_codes(spark,df_airports):
+    """
+        Clean airports data by discarding non-US airports
+        and rows with NULL local_code
+
+        Parameters:
+            spark       : Spark Session
+            df_airports : Spark DataFrame containing Airports data
+    """
     df_airports.createOrReplaceTempView("airports")
 
     df_airports_clean = spark.sql("""
@@ -12,6 +20,15 @@ def clean_airport_codes(spark,df_airports):
 
 
 def clean_demographics(spark,df_demo):
+    """
+        Clean demographics data by renaming and removing spaces in column names,
+        fix column data types, discard rows with missing city/state values,
+        remove duplicates (by city & state)
+
+        Parameters:
+            spark       : Spark Session
+            df_demo     : Spark DataFrame containing US demographics data
+    """
     df_demo.createOrReplaceTempView("demo")
 
     df_demo_clean = spark.sql("""
@@ -26,6 +43,19 @@ def clean_demographics(spark,df_demo):
 
 
 def clean_immigration_data(spark, df_visits, df_airport_codes, df_countries, df_states, df_visa):
+    """
+        Clean immigration data by renaming columns to meaningful names,
+        fix data types, date formats,
+        discard invalid airport/country/state/visa codes
+
+        Parameters:
+            spark           : Spark Session
+            df_visits       : Spark DataFrame containing immigration data
+            df_airport_codes: Spark DataFrame containing Airports data
+            df_countries    : Spark DataFrame containing country codes
+            df_states       : Spark DataFrame containing state codes
+            df_visa         : Spark DataFrame containing visa codes
+    """
     df_visits.createOrReplaceTempView("visits")
     df_airport_codes.createOrReplaceTempView("airport_codes")
     df_countries.createOrReplaceTempView("countries")

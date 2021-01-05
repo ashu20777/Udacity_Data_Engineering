@@ -1,6 +1,6 @@
 # Capstone Project
 
-In this open-ended project we build a Data Warehouse for the I94 Immigration Data coming from the US National Tourism and Trade Office, and further enrich it with various other datasets such as US City Demographic Data, Airports data, Country and States date, and Visa information.
+In this open-ended project we build a Data Warehouse for the I94 Immigration Data coming from the US National Tourism and Trade Office, and further enrich it with various other datasets such as US City Demographic Data, Airports data, Country and States data, and Visa information.
 
 
 ## Data Sources

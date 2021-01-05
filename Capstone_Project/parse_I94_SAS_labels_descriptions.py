@@ -5,6 +5,13 @@ file = "data/I94_SAS_Labels_Descriptions.SAS"
 
 
 def get_airport_codes(spark):
+    """
+        Parse SAS_labels_descriptions file for valid airport codes
+        and load into a Spark DataFrame
+
+        Parameters:
+            spark       : Spark Session
+    """
     f = open(file, "r")
     lines = f.readlines()
     airports = []
@@ -22,6 +29,13 @@ def get_airport_codes(spark):
 
 
 def get_states(spark):
+    """
+        Parse SAS_labels_descriptions file for valid state codes
+        and load into a Spark DataFrame
+
+        Parameters:
+            spark       : Spark Session
+    """
     f = open(file, "r")
     lines = f.readlines()
     states = []
@@ -39,6 +53,13 @@ def get_states(spark):
 
 
 def get_countries(spark):
+    """
+        Parse SAS_labels_descriptions file for valid country codes
+        and load into a Spark DataFrame
+
+        Parameters:
+            spark       : Spark Session
+    """
     f = open(file, "r")
     lines = f.readlines()
     countries = []
@@ -56,6 +77,13 @@ def get_countries(spark):
 
 
 def get_visa(spark):
+    """
+        Parse SAS_labels_descriptions file for valid visa codes
+        and load into a Spark DataFrame
+
+        Parameters:
+            spark       : Spark Session
+    """
     f = open(file, "r")
     lines = f.readlines()
     visa = []

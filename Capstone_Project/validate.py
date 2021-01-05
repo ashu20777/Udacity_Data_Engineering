@@ -1,5 +1,13 @@
 
 def validate_dimensions(spark,dimensions,output_data):
+    """
+        Run row count validation check on Dimension parquet files
+
+        Parameters:
+            spark       : Spark Session
+            output_data : location of fact & dimension parquet files
+            dimensions  : list containing Dimension names
+    """
     for dimension in dimensions:
         df = spark.read.parquet(output_data+dimension+'.parquet')
         df.createOrReplaceTempView(dimension)
@@ -15,6 +23,15 @@ def validate_dimensions(spark,dimensions,output_data):
 
 
 def validate_fact(spark,fact,output_data):
+    """
+        Run data quality checks on Fact table:
+        row count check, Unique key check, Missing values check
+
+        Parameters:
+            spark       : Spark Session
+            output_data : location of fact & dimension parquet files
+            fact        : name of fact table
+    """
     df = spark.read.parquet(output_data + fact + '.parquet')
     df.createOrReplaceTempView(fact)
 
