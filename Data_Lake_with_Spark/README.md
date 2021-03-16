@@ -15,7 +15,7 @@ SECRET=YOUR_AWS_SECRET_KEY
 ```
 - Create an S3 bucket `s3a://udacity-data-lake-w-spark/` to store the output files
 - Run the following command:
-`python etl.py`
+`spark-submit etl.py`
 
 
 **From EMR Cluster:**	
