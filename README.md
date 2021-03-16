@@ -21,11 +21,11 @@ In this project, we build an ETL pipeline for a data lake. The data resides in S
 Link: [Data_Lake_with_Spark](https://github.com/ashu20777/Udacity_Data_Engineering/tree/master/Data_Lake_with_Spark)
 
 ## Project 5: Data Pipelines with Airflow
-In this project, we continue your work on the music streaming company’s data infrastructure by creating and automating a set of data pipelines. We configure and schedule data pipelines with Airflow and monitor and debug production pipelines.
+In this project, we continue our work on the music streaming company’s data infrastructure by creating and automating a set of data pipelines. We configure and schedule data pipelines with Airflow, and monitor and debug production pipelines.
 
 Link: [Airflow_Data_Pipelines](https://github.com/ashu20777/Udacity_Data_Engineering/tree/master/Data_Pipelines_with_Airflow)
 
-## Project 6: CAPSTONE PROJECT
+## Project 6: Capstone Project
 In this project we use the knowledge gained in this program to build our own data warehouse. We define the scope of the project and the data we are working with. We gather data from several different data sources; transform, combine, and summarize it; and create a clean data warehouse for others to analyze.
   
 Link: [Capstone Project](https://github.com/ashu20777/Udacity_Data_Engineering/tree/master/Capstone_Project)
