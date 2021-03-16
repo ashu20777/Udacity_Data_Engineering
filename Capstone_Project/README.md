@@ -43,4 +43,4 @@ Below are the file included in this project:
 
 - Run the following command:
 
-	`python etl.py`
+	`spark-submit etl.py`
